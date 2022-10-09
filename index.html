@@ -4,32 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- Form -->
-    <div>
-        <label for="user-name">Nome e Cognome</label>
-        <input type="text" name="" id="user-name">
-    </div>
+    <main>
+        <!-- Form -->
+        <div class="info-user rounded">
+            <div class="row">
+                <div class="col-10 offset-2">
+                    <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+                </div>
+                <div class="col-4">
+                    <label for="user-name">Nome e Cognome</label>
+                    <input type="text" name="" id="user-name">
+                </div>
+                
+                <div class="col-4">
+                    <label for="user-km">Km da percorrere</label>
+                    <input type="text" name="" id="user-km">
+                </div>
+        
+                <div class="col-4">
+                    <label for="user-age">Quanti anni hai?</label>
+                    <input type="text" name="" id="user-age">
+                </div>
+    
+                <div class="row">
+                    <div class="button-part col-6 offset-3 d-flex pt-5">
+                        <div>
+                            <button id="submit">Submit</button>
+                        </div>
+            
+                        <div>
+                            <button id="cancel">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div>
-        <label for="user-age">Età</label>
-        <input type="text" name="" id="user-age">
-    </div>
+        
+        
+        <!-- /Form -->
+        
+        <!-- Results -->
+        <div class="row">
+            <div class="ticket col-8 offset-2 mt-5 pt-5 rounded">
+                <h1 id="title">Ciao. Ecco il tuo biglietto</h1>
+                <p>Costo biglietto: euro</p>
+                <p>Carrozza: 4</p>
+                <p>Posto: 13A</p>
+                <p>Codice CP: 829382</p>
+            </div>
+        </div>
 
-    <div>
-        <button id="submit">Submit</button>
-    </div>
-    <!-- /Form -->
+        <!-- /Results -->
+    </main>
 
-    <!-- Results -->
-
-    <h1>Ciao</h1>
-    <p class="age-ind">La tua età è:</p>
-    <p class="discount-ind">Lo sconto applicato è di:</p>
-    <p class="price-ind">Il prezzo che devi pagare ammonta a:</p>
+    
 
 
     <script src="js/script.js"></script>

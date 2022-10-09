@@ -17,58 +17,70 @@ Realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visual
 Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo).
 */
 
+
 // Dati
 const pricePerKm = 0.21;
-const adult = 18;
-const overAdult = 65;
 
+// Costanti
 const userNameInput = document.getElementById("user-name");
-const userAge = document.getElementById("user-age");
 const submitBtn = document.getElementById("submit");
+const userAgeInput = document.getElementById("user-age");
+const userKmInput = document.getElementById("user-km");
 
 const title = document.querySelector("h1");
-const paragrhap = document.querySelector("p");
-// INPUT
-// Chiedere il numero di chilometri da percorrere
-const userKm = parseFloat(prompt("Quanti km vuoi percorrere?"));
-console.log(userKm, typeof userKm);
+console.log(title);
 
-// Chiedere età del passeggero
-const userAgeInput = parseInt(prompt("Quanti anni ha il passeggero?"));
-console.log(userAge, typeof userAge);
+const paragraph = document.querySelector("p");
+console.log(paragraph);
 
-// Calcolare biglietto prezzo base
+// Variabili
+let discountPercentage = 0;
+
+//Al click sul bottone submit
+submitBtn.addEventListener("click", function() {
+  //Prendo valore input
+  const userName = userNameInput.value;
+  console.log(userName, typeof(userName));
+
+  const userAge = parseInt(userAgeInput.value);
+  console.log(userAge, typeof(userAge));
+
+  const userKm = parseInt(userKmInput.value);
+  console.log(userKm, typeof(userKm));
+
+  //Inserisco valore in h1
+  title.innerHTML = `Ciao ${userName}! Ecco il tuo biglietto`;
+
+  //Ripulisco input
+  // userNameInput.value = " ";
+  // userKmInput.value = " ";
+  // userAgeInput.value = " ";
+
+
+// SE il passeggero ha meno di 18 anni
+// Sconto 20%
+// ALTRIMENTI SE passeggero ha più di 65 anni
+// Sconto 40%
+// ALTRIMENTI
+// Sconto 0%
+
+if (userAge < 18) {
+  discountPercentage = 20;
+} else if (userAge > 65) {
+  discountPercentage = 40;
+}
+
+console.log(discountPercentage);
+
+// Calcolare prezzo base
 const basePrice = userKm * pricePerKm;
 console.log(basePrice);
 
-// Calcolare prezzo SE utente minorenne (sconto 20%)
-// Calcolare prezzo SE utente over65 (sconto 40%)
-// ALTRIMENTI prezzo pieno (sconto 0%)
-let discountPercentage = 0;
-if (userAge < adult) {
-  discountPercentage = 20;
-} else if (userAge > overAdult) {
-  discountPercentage = 40;
-}
-console.log(discountPercentage, typeof(discountPercentage));
-
-//Formula per biglietto prezzo scontato
+// Calcolo il prezzo scontato: totalPrice = basePrice - (basePrice * sconto / 100)
 let finalPrice = basePrice - (basePrice * discountPercentage / 100);
+
 finalPrice = finalPrice.toFixed(2);
 
-
-// Al click sul bottone submit
-submitBtn.addEventListener("click", function() {
-    // Perendo valore input
-    const userName = userNameInput.value;
-    console.log(userName);
-
-    // Inserire valore in h1
-    title.innerHTML = `Ciao ${userName}!`;
-
-    // Inserisco valori in p
-    paragrhap.innerHTML = `La tua età è: ${userAgeInput}`
-})
-
-// OUTPUT
-console.log(finalPrice, typeof finalPrice);
+ //Inserisco valore in p
+ paragraph.innerHTML = `Costo biglietto: ${finalPrice} euro`;
+});

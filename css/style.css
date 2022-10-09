@@ -1,0 +1,18 @@
+main{
+    background-color: lightcoral;
+}
+
+.info-user{
+    padding-top: 2em;
+    width: 80%;
+    margin: 0 auto;
+    background-color: lightgray;
+}
+
+.button-part{
+    justify-content: space-around;
+}
+
+.ticket{
+    background-color: lightgray;
+}
