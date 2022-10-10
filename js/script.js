@@ -52,9 +52,9 @@ submitBtn.addEventListener("click", function() {
   title.innerHTML = `Ciao ${userName}! Ecco il tuo biglietto`;
 
   //Ripulisco input
-  // userNameInput.value = " ";
-  // userKmInput.value = " ";
-  // userAgeInput.value = " ";
+ userNameInput.value = " ";
+ userKmInput.value = " ";
+ userAgeInput.value = " ";
 
 
 // SE il passeggero ha meno di 18 anni
